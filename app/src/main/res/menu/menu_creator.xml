@@ -3,10 +3,12 @@
 
     <item app:showAsAction="ifRoom"
           android:title="back"
+          android:id="@+id/btn_menu_back"
           android:icon="@drawable/ic_back"/>
 
 
     <item android:icon="@drawable/ic_forward"
+          android:id="@+id/btn_menu_forward"
           app:showAsAction="ifRoom"
           android:title="forward"/>
 </menu>

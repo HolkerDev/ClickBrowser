@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,6 +17,27 @@ class MainActivity : AppCompatActivity() {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_creator, menu)
         return true
+    }
+
+    //when item selected
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item != null) {
+            when (item.itemId) {
+                R.id.btn_menu_back -> {
+                    if (webView.canGoBack()) {
+                        webView.goBack()
+                    }
+                    return true
+                }
+                R.id.btn_menu_forward -> {
+                    if (webView.canGoForward()) {
+                        webView.goForward()
+                    }
+                    return true
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     //when back button is pressed return to the previous page
@@ -41,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         webView.settings.loadsImagesAutomatically = true
         webView.webViewClient = WebViewClient()
