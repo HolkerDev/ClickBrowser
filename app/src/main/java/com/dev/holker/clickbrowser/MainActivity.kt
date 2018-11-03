@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater:MenuInflater = menuInflater
-        inflater.inflate(R.menu.menu_creator,menu)
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_creator, menu)
         return true
     }
 
@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         webView.settings.loadsImagesAutomatically = true
         webView.webViewClient = WebViewClient()
+        webView.settings.builtInZoomControls = true;
+        webView.settings.displayZoomControls = false;
+        webView.settings.javaScriptEnabled = true
         webView.loadUrl("https://www.google.com/")
     }
 }
