@@ -7,9 +7,42 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <WebView
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp" android:id="@+id/webView">
-    </WebView>
+            android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:theme="?attr/actionBarTheme"
+                android:minHeight="?attr/actionBarSize" tools:layout_editor_absoluteY="0dp"
+                tools:layout_editor_absoluteX="8dp" android:id="@+id/toolbar">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="horizontal"
+                          android:layout_height="match_parent">
+
+                <EditText android:layout_width="150dp"
+                          android:layout_height="wrap_content"
+                          android:layout_weight="1"
+                          android:hint="search"/>
+
+                <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Search"
+                        android:textAllCaps="false"/>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.Toolbar>
+
+        <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" tools:layout_editor_absoluteY="8dp"
+                tools:layout_editor_absoluteX="8dp" android:id="@+id/webView">
+        </WebView>
+
+    </LinearLayout>
+
 </RelativeLayout>
