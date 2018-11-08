@@ -71,6 +71,12 @@ class MainActivity : AppCompatActivity() {
         webView.settings.displayZoomControls = false;
         webView.settings.javaScriptEnabled = true
         webView.loadUrl("https://www.google.com/")
+
+        search_button.setOnClickListener {
+            webView.loadUrl("https://www.google.com/search?q=" + search_edit_frame.text.toString())
+            search_edit_frame.setText("")
+        }
+
     }
 }
 

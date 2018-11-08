@@ -26,9 +26,11 @@
                 <EditText android:layout_width="150dp"
                           android:layout_height="wrap_content"
                           android:layout_weight="1"
+                          android:id="@+id/search_edit_frame"
                           android:hint="search"/>
 
                 <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:id="@+id/search_button"
                         android:text="Search"
                         android:textAllCaps="false"/>
 
