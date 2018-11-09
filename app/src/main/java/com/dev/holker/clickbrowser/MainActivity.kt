@@ -1,5 +1,6 @@
 package com.dev.holker.clickbrowser
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
@@ -34,6 +35,11 @@ class MainActivity : AppCompatActivity() {
                         webView.goForward()
                     }
                     return true
+                }
+                R.id.btn_menu_bookmark -> {
+                    val intent = Intent(applicationContext, Bookmarks::class.java)
+                    intent.putExtra("web", webView.url)
+                    startActivity(intent)
                 }
             }
         }
