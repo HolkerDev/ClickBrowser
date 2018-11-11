@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_bookmarks.*
 
 class Bookmarks : AppCompatActivity() {
@@ -13,6 +14,9 @@ class Bookmarks : AppCompatActivity() {
         setContentView(R.layout.activity_bookmarks)
         val intent = intent
         val prevWeb: String = intent.getStringExtra("web")
+        val bookmarks = arrayListOf<String>()
+
+        val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bookmarks)
 
         AlertDialog.Builder(this)
             .setIcon(R.drawable.ic_star_black_24dp)
@@ -20,10 +24,12 @@ class Bookmarks : AppCompatActivity() {
             .setMessage("Do want to add $prevWeb to bookmarks ?")
             .setPositiveButton("Add") { dialog: DialogInterface?, which: Int ->
                 run {
-                    textView.text = prevWeb
+                    bookmarks.add(prevWeb)
                 }
             }
             .setNegativeButton("No", null)
             .show()
+
+        lv_bookmarks.adapter = arrayAdapter
     }
 }
