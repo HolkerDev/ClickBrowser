@@ -1,6 +1,8 @@
 package com.dev.holker.clickbrowser
 
+import android.content.Context
 import android.content.DialogInterface
+import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -9,9 +11,21 @@ import kotlinx.android.synthetic.main.activity_bookmarks.*
 
 class Bookmarks : AppCompatActivity() {
 
+
+    //check if DB exists. If not - create its
+    fun creatingDB() {
+        val sqlDataBase: SQLiteDatabase = this.openOrCreateDatabase("Bookmarks", Context.MODE_PRIVATE, null)
+        sqlDataBase.execSQL("CREATE TABLE IF NOT EXISTS bookmarks (webPage VARCHAR)")
+    }
+    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bookmarks)
+
+        creatingDB()
+
+
         val intent = intent
         val prevWeb: String = intent.getStringExtra("web")
         val bookmarks = arrayListOf<String>()
